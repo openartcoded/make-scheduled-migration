@@ -3,12 +3,12 @@ const { readFileSync, writeFileSync, mkdirSync } = require('fs');
 
 
 
-const SCHEDULE_FILE_PATH = process.env.SCHEDULE_FILE_PATH;
-const MIGRATION_PATH = process.env.MIGRATION_PATH;
+const SCHEDULE_CSV_FILE_PATH = process.env.SCHEDULE_FILE_PATH || "/share/schedule.csv";
+const MIGRATION_PATH = process.env.MIGRATION_PATH || "/share/migrations";
 
 mkdirSync(MIGRATION_PATH, { recursive: true });
 
-const schedules = readFileSync(SCHEDULE_FILE_PATH, { encoding: 'utf-8' });
+const schedules = readFileSync(SCHEDULE_CSV_FILE_PATH, { encoding: 'utf-8' });
 for (const line of schedules.split('\n')) {
 
   if (!line.trim()?.length) {
