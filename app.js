@@ -57,7 +57,7 @@ for (const line of schedules.split('\n')) {
 <http://redpencil.data.gift/id/remote-file/${remoteFileUuid}> <http://www.semanticdesktop.org/ontologies/2007/01/19/nie#url> <${url}> .
 `;
 
-  const filePath = `./${MIGRATION_PATH}/${title.toLowerCase()}-${new Date().toISOString().substring(0, 19)
+  const filePath = `${MIGRATION_PATH}/${title.toLowerCase()}-${new Date().toISOString().substring(0, 19)
     .replaceAll(':', '').replaceAll('-', '').replaceAll('.', '').replaceAll('T', '')}`;
   writeFileSync(`${filePath}.graph`, "http://mu.semte.ch/graphs/harvesting");
   writeFileSync(`${filePath}.ttl`, pattern);
